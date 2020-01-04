@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+     <div class="col-sm-12 col-xs-12 ">
+        <form [formGroup]="form" (ngSubmit)="submit(form)">
+        <div class="panel-body text-center">
+           <img *ngIf="previewUrl"  [src]="previewUrl"  class="img-circle profile-avatar" alt="User avatar" (click)="fileInput.click()">
+           <input style="display: none" type="file" formControlName="image" (change)="fileProgress($event)" #fileInput>
+           <h4>Add Photo</h4>
+           <div *ngIf="fileUploadProgress">
+              Upload progress: {{ fileUploadProgress }}
+          </div>
+        </div>
+        <div>
+           <mat-form-field>
+              <input matInput placeholder="Firstname" formControlName="firstName">
+           </mat-form-field>
+        </div>
+        <div>
+           <mat-form-field>
+              <input matInput placeholder="Lastname" formControlName="lastName">
+           </mat-form-field>
+        </div>
+        <div>
+           <mat-form-field class="example-full-width">
+              <span matPrefix>+44 &nbsp;</span>
+              <input type="number" matInput placeholder="Mobile Number" formControlName="mobileNumber">
+              <mat-icon matSuffix>mode_edit</mat-icon>
+           </mat-form-field>
+        </div>
+        <div>
+           <mat-form-field>
+            <input matInput placeholder="Email" formControlName="email" email>
+           </mat-form-field>
+        </div>
+        <div>
+          <button mat-button type="submit" class="btn btn-success" [disabled]="form.invalid">Add Contact</button>
+          <button mat-button type="button" class="btn btn-defult" (click)="onCancel()">Cancel</button>
+        </div>
+        </form>
+     </div>
+  </div>
+</div>

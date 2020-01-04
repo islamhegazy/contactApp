@@ -1,0 +1,22 @@
+<div class="recent_contacts">
+<div class="d_flex">
+<h4>Add New Contacts</h4>
+<div class="addContact"><a routerLink='add-contact'>+</a></div>
+</div>
+<hr>
+<h5>Latest Contacts</h5>
+<ul class="list-group list-group-flush">
+    <li class="list-group-item" *ngFor="let item of (recentContacts | reverse | slice:recentContacts.length -2 | reverse )  "> 
+        <div class="contact">
+            <div class="contact_image">
+                <img [src]="item.image"  alt="..." class="img-fluid">
+            </div>
+            <div class="contact_data">
+                <span>{{item.firstName}} </span> <span>{{item.lastName}}</span>
+            </div>
+        </div>
+    </li>
+  </ul>
+</div>
+
+<hr>

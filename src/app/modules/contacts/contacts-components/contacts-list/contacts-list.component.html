@@ -1,0 +1,26 @@
+<app-recent-contacts></app-recent-contacts>
+<div style="overflow: hidden; margin-bottom: 50px">
+  <alphabet-filter 
+  propAlphaOrder="firstName"
+  propsSearch="firstName"
+  placeholder="Search Contacts"
+  height="500px"
+  [data]="ContactList"
+  (onClick)="selected($event)"
+  [withTemplate]="true"
+>
+  <ng-template let-item>
+    <div class="search-list-item contact">
+      <div class="contact_image">
+        <img *ngIf="!item.image == null" [src]="item.image"  class="img-fluid">
+        <img *ngIf="item.image == null" src="assets/user.png"  class="img-fluid">
+      </div>
+      <div class="contact_data">
+        <div><span>{{item.firstName}} </span> <span>{{item.lastName}}</span></div>
+        <div><span>{{item.email}}</span></div>
+      </div>
+    </div>
+    <hr>
+  </ng-template>
+</alphabet-filter>
+</div>

@@ -1,0 +1,18 @@
+
+
+.d_flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.recent_contacts{
+   
+    .addContact{
+        font-size: 50px;
+        font-weight: 900;
+        a{
+            color: #7db623;
+        }
+    }
+}
